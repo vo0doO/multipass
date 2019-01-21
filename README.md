@@ -17,7 +17,7 @@ On Linux it's available as a snap:
 sudo snap install multipass --beta --classic
 ```
 
-For MacOS we provide installers [on GitHub](https://github.com/CanonicalLtd/multipass/releases).
+For macOS we provide installers [on GitHub](https://github.com/CanonicalLtd/multipass/releases).
 
 # Usage
 
