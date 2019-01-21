@@ -24,7 +24,7 @@ For macOS we provide installers [on GitHub](https://github.com/CanonicalLtd/mult
 ## Find available images
 ```
 $ multipass find
-IMAGE  ALIASES         VERSION   DESCRIPTION
+Image  Aliases         Version   Description
 core                   20180419  Ubuntu Core 16
 14.04  t, trusty       20181203  Ubuntu 14.04 LTS
 16.04  x, xenial       20181207  Ubuntu 16.04 LTS
