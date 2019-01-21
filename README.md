@@ -6,7 +6,8 @@ KVM on Linux and HyperKit on MacOS to run the VM with minimal overhead.
 Multipass will fetch images for you and keep them up to date.
 
 Since it supports metadata for cloud-init, you can simulate a small cloud
-deployment on your laptop or workstation.
+deployment on your laptop or workstation. See [Using cloud-init with Multipass](https://blog.ubuntu.com/2018/04/02/using-cloud-init-with-multipass)
+on the Ubuntu blog for more details.
 
 # Install Multipass
 
@@ -73,7 +74,6 @@ Don't forget to logout (or Ctrl-D) or you may find yourself heading all the
 way down the Inception levels... ;)
 
 ## Run commands inside an instance from outside
-
 ```
 $ multipass exec dancing-chipmunk -- lsb_release -a
 No LSB modules are available.
