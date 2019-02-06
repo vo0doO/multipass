@@ -69,9 +69,6 @@ _multipass_complete()
         "recover"|"start"|"stop"|"suspend"|"restart")
             opts="${opts} --all"
         ;;
-        "systray")
-            opts="${opts}"
-        ;;
     esac
 
     if [[ ${prev} == -* ]]; then
