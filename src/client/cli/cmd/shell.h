@@ -13,10 +13,12 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Authored by: Alberto Aguirre <alberto.aguirre@canonical.com>
+ *
  */
 
-#ifndef MULTIPASS_FIND_H
-#define MULTIPASS_FIND_H
+#ifndef MULTIPASS_CONNECT_H
+#define MULTIPASS_CONNECT_H
 
 #include <multipass/cli/command.h>
 
@@ -24,21 +26,22 @@ namespace multipass
 {
 namespace cmd
 {
-class Find final : public Command
+class Shell final : public Command
 {
 public:
     using Command::Command;
     ReturnCode run(ArgParser* parser) override;
 
     std::string name() const override;
+    std::vector<std::string> aliases() const override;
     QString short_help() const override;
     QString description() const override;
 
 private:
-    FindRequest request;
+    SSHInfoRequest request;
 
-    ParseCode parse_args(ArgParser* parser) override;
+    ParseCode parse_args(ArgParser *parser) override;
 };
-}
-}
-#endif // MULTIPASS_FIND_H
+} // namespace cmd
+} // namespace multipass
+#endif // MULTIPASS_CONNECT_H

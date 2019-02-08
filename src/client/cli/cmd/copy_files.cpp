@@ -102,11 +102,13 @@ QString cmd::CopyFiles::description() const
 
 mp::ParseCode cmd::CopyFiles::parse_args(mp::ArgParser* parser)
 {
-    parser->addPositionalArgument("source", "One or more paths to copy, prefixed with <name:> "
-                                            "for paths inside the instance",
+    parser->addPositionalArgument("source",
+                                  "One or more paths to copy, prefixed with <name:> "
+                                  "for paths inside the instance",
                                   "<source> [<source> ...]");
-    parser->addPositionalArgument("destination", "The destination path, prefixed with <name:> for "
-                                                 "a path inside the instance",
+    parser->addPositionalArgument("destination",
+                                  "The destination path, prefixed with <name:> for "
+                                  "a path inside the instance",
                                   "<destination>");
 
     auto status = parser->commandParse(this);

@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2018 Canonical, Ltd.
+ * Copyright (C) 2017 Canonical, Ltd.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,21 +13,20 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Authored by: Alberto Aguirre <alberto.aguirre@canonical.com>
+ *
  */
 
-#ifndef MULTIPASS_COPY_FILES_H
-#define MULTIPASS_COPY_FILES_H
+#ifndef MULTIPASS_VERSION_H
+#define MULTIPASS_VERSION_H
 
 #include <multipass/cli/command.h>
-
-#include <string>
-#include <vector>
 
 namespace multipass
 {
 namespace cmd
 {
-class CopyFiles final : public Command
+class Version final : public Command
 {
 public:
     using Command::Command;
@@ -38,12 +37,8 @@ public:
     QString description() const override;
 
 private:
-    SSHInfoRequest request;
-    std::vector<std::pair<std::string, std::string>> sources;
-    std::pair<std::string, std::string> destination;
-
     ParseCode parse_args(ArgParser* parser) override;
 };
-}
-}
-#endif // MULTIPASS_COPY_FILES_H
+} // namespace cmd
+} // namespace multipass
+#endif // MULTIPASS_VERSION_H

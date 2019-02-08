@@ -13,37 +13,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * Authored by: Alberto Aguirre <alberto.aguirre@canonical.com>
- *
  */
 
-#ifndef MULTIPASS_ANIMATED_SPINNER_H
-#define MULTIPASS_ANIMATED_SPINNER_H
+#ifndef MULTIPASS_HELP_H
+#define MULTIPASS_HELP_H
 
-#include <future>
-#include <string>
-#include <vector>
+#include <multipass/cli/command.h>
 
 namespace multipass
 {
-class AnimatedSpinner
+namespace cmd
+{
+class Help final : public Command
 {
 public:
-    explicit AnimatedSpinner(std::ostream& cout);
-    ~AnimatedSpinner();
+    using Command::Command;
+    ReturnCode run(ArgParser* parser) override;
 
-    void start(const std::string& message);
-    void stop();
+    std::string name() const override;
+    QString short_help() const override;
+    QString description() const override;
 
 private:
-    void draw();
-    const std::vector<char> spinner;
-    std::ostream& cout;
-    bool running;
-    std::mutex mutex;
-    std::condition_variable cv;
-    std::thread t;
-};
-}
+    QString command;
 
-#endif // MULTIPASS_ANIMATED_SPINNER_H
+    ParseCode parse_args(ArgParser* parser) override;
+};
+} // namespace cmd
+} // namespace multipass
+#endif // MULTIPASS_HELP_H
