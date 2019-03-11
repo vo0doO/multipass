@@ -18,15 +18,15 @@
 #ifndef MULTIPASS_SNAP_UTILS_H
 #define MULTIPASS_SNAP_UTILS_H
 
-#include <QString>
+#include <QByteArray>
 
 namespace multipass
 {
 namespace utils
 {
 bool is_snap_confined();
-QString snap_dir();
-QString snap_common_dir();
+QByteArray snap_dir();
+QByteArray snap_common_dir();
 } // namespace utils
 } // namespace multipass
 

@@ -26,22 +26,12 @@ bool mu::is_snap_confined()
     return !snap_dir().isEmpty();
 }
 
-QString mu::snap_dir()
+QByteArray mu::snap_dir()
 {
-    static QString snap_env;
-    if (snap_env.isNull())
-    {
-        snap_env = qgetenv("SNAP"); // Inside snap, this can be trusted.
-    }
-    return snap_env;
+    return qgetenv("SNAP"); // Inside snap, this can be trusted.
 }
 
-QString mu::snap_common_dir()
+QByteArray mu::snap_common_dir()
 {
-    static QString snap_common_env;
-    if (snap_common_env.isNull())
-    {
-        snap_common_env = qgetenv("SNAP_COMMON"); // Inside snap, this can be trusted
-    }
-    return snap_common_env;
+    return qgetenv("SNAP_COMMON"); // Inside snap, this can be trusted
 }
