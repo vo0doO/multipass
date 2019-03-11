@@ -95,6 +95,7 @@ add_executable(multipass_tests
   test_simple_streams_manifest.cpp
   test_scp_client.cpp
   test_sftpserver.cpp
+  test_snap_utils.cpp
   test_ssl_cert_provider.cpp
   test_sshfsmount.cpp
   test_ssh_client.cpp
