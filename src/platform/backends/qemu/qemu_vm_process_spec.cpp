@@ -17,9 +17,11 @@
 
 #include "qemu_vm_process_spec.h"
 
+#include <multipass/snap_utils.h>
 #include <shared/linux/backend_utils.h>
 
 namespace mp = multipass;
+namespace mu = multipass::utils;
 
 mp::QemuVMProcessSpec::QemuVMProcessSpec(const mp::VirtualMachineDescription& desc, const QString& tap_device_name,
                                          const QString& mac_addr)
@@ -72,8 +74,7 @@ QStringList mp::QemuVMProcessSpec::arguments() const
 
 QString mp::QemuVMProcessSpec::working_directory() const
 {
-    auto snap = qgetenv("SNAP");
-    if (!snap.isEmpty())
-        return snap.append("/qemu");
+    if (mu::is_snap_confined())
+        return mu::snap_dir().append("/qemu");
     return QString();
 }

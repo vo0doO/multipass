@@ -19,6 +19,7 @@
 
 #include <multipass/platform.h>
 
+#include <multipass/snap_utils.h>
 #include <multipass/virtual_machine_factory.h>
 
 #include "backends/libvirt/libvirt_virtual_machine_factory.h"
@@ -29,6 +30,7 @@
 #include <disabled_update_prompt.h>
 
 namespace mp = multipass;
+namespace mu = multipass::utils;
 
 namespace
 {
@@ -46,7 +48,18 @@ mp::ProcessFactory* process_factory()
 
 std::string mp::platform::default_server_address()
 {
-    return {"unix:/run/multipass_socket"};
+    std::string base_dir;
+
+    if (mu::is_snap_confined())
+    {
+        // if Snap confined, client and daemon can both access $SNAP_COMMON so can put socket there
+        base_dir = mu::snap_common_dir().toStdString();
+    }
+    else
+    {
+        base_dir = "/run";
+    }
+    return "unix:" + base_dir + "/multipass_socket";
 }
 
 mp::VirtualMachineFactory::UPtr mp::platform::vm_backend(const mp::Path& data_dir)
