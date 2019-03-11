@@ -125,7 +125,6 @@ auto generate_xml_config_for(const mp::VirtualMachineDescription& desc, const st
 
     auto qemu_path = fmt::format("/usr/bin/qemu-system-{}", arch);
 
-    auto snap = qgetenv("SNAP");
     if (mu::is_snap_confined())
     {
         auto snap_path = QDir(mu::snap_dir());
