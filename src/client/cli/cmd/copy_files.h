@@ -44,6 +44,6 @@ private:
 
     ParseCode parse_args(ArgParser* parser) override;
 };
-} // namespace cmd
-} // namespace multipass
+}
+}
 #endif // MULTIPASS_COPY_FILES_H
